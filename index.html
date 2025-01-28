@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amir Hamzah | About Me</title>
+    <link rel="stylesheet" href="./src/output.css" />
+
+    <!-- ============= FONT INIZIALIZATION ================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Jost:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        ::-webkit-scrollbar {
+          width: 8px;
+          background-color: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          border-radius: 50px;
+          background-color: #333;
+        }
+
+        ::-webkit-scrollbar-track {
+          margin-top: 50px;
+          margin-bottom: 50px;
+          background-color: transparent;
+        }
+      }
+
+      html {
+        cursor: url('./assets/ui/cursor/cursor-default.png'), auto;
+        scroll-behavior: smooth; /* Smooth scrolling */
+      }
+
+      body {
+        scroll-snap-type: y mandatory; /* Snap scroll */
+        scroll-behavior: smooth; /* Smooth scrolling */
+      }
+
+      section {
+        scroll-snap-align: start; /* Snap alignment */
+      }
+
+      li,
+      a,
+      img,
+      svg,
+      button {
+        cursor: url('./assets/ui/cursor/cursor-pointer.png'), pointer;
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+
+      #chatBox {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      #chatBox::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, and Opera */
+      }
+    </style>
+  </head>
+  <body class="bg-secondary-bg font-jost selection:bg-[#374151f0] selection:text-gray-200">
+
+    <audio id="notificationSound" autoplay>
+      <source src="./assets/audio/sfx/notification.mp3" type="audio/mpeg">
+  </audio>
+
+    <!-- ================= NAVBAR START =============== -->
+    <div id="navbarTop" class="fixed left-0 top-0 z-[100] w-full bg-[#efefef70] backdrop-blur-md">
+      <nav class="flex w-full flex-wrap items-center justify-between px-[4%] py-4 max-sm:px-[5%]">
+        <div class="left-logo flex items-center space-x-4">
+          <h2 class="text-2xl font-medium text-primary max-md:text-xl">
+            <a href="#home">AmirHamzah.</a>
+          </h2>
+        </div>
+
+        <div class="right-items flex items-center justify-end space-x-4 max-md:space-x-2">
+          <a href="https://www.github.com/AmirHamzah133" target="_blank">
+            <img
+              src="assets\logo\social media\github.svg"
+              alt="GitHub"
+              class="mr-3 h-[26px] w-[26px] hover:opacity-80 max-md:h-[26px] max-md:w-[26px]"
+            />
+          </a>
+          <div id="menu" class="relative">
+            <img src="assets\ui\menu-double.svg" alt="" class="h-[34px] w-[34px] max-md:h-[34px] max-md:w-[34px]" />
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div
+      id="menuItemsOverlay"
+      class="fixed z-[110] flex h-[0vh] w-[100vw] origin-bottom items-center justify-center overflow-hidden bg-gray-300 transition-all duration-500 ease-in-out"
+    ></div>
+    <div
+      id="menuItemsOverlayTwo"
+      class="fixed z-[110] flex h-[0vh] w-[100vw] origin-bottom items-center justify-center overflow-hidden bg-gray-50 transition-all duration-700 ease-in-out"
+    ></div>
+    <div
+      id="menuItems"
+      class="fixed z-[110] flex h-[0vh] w-[100vw] origin-bottom items-center justify-center overflow-hidden bg-primary opacity-[98%] transition-all duration-[800ms] ease-in-out"
+    >
+      <div class="flex flex-col items-center justify-center space-y-4">
+        <a href="#home" class="text-2xl font-bold text-white hover:underline hover:tracking-wider">Home</a>
+        <a href="#about" class="text-2xl font-bold text-white hover:underline hover:tracking-wider">About</a>
+        <a href="#projects" class="text-2xl font-bold text-white hover:underline hover:tracking-wider">Projects</a>
+        <a href="#contact" class="text-2xl font-bold text-white hover:underline hover:tracking-wider">Contact</a>
+      </div>
+    </div>
+    <!-- ================= NAVBAR END =============== -->
+
+    <!-- ================= NAVBAR LEFT START =============== -->
+
+    <div id="navbarLeft" class="fixed left-0 z-[100] flex min-h-[100vh] w-[60px] items-center justify-center max-md:hidden">
+      <div class="flex h-[320px] w-full flex-col items-center justify-center space-y-4 rounded-r-2xl bg-primary px-3 py-4">
+        <div
+          id="homeLeft"
+          style="cursor: url('./assets/ui/cursor/cursor-pointer.png'), pointer"
+          class="flex items-center justify-center border-b-[2px] border-b-transparent px-1 py-2 hover:border-b-el-w-100"
+        >
+          <a href="#home">
+            <img src="./assets/ui/home.svg" alt="home" class="invert" />
+          </a>
+        </div>
+
+        <div
+          id="aboutLeft"
+          onclick="onFocus()"
+          style="cursor: url('./assets/ui/cursor/cursor-pointer.png'), pointer"
+          class="flex items-center justify-center border-b-[2px] border-b-transparent px-1 py-2 hover:border-b-el-w-100"
+        >
+          <a href="#about">
+            <img src="./assets/ui/user.svg" alt="home" class="invert" />
+          </a>
+        </div>
+
+        <div
+          id="projectsLeft"
+          style="cursor: url('./assets/ui/cursor/cursor-pointer.png'), pointer"
+          class="flex items-center justify-center border-b-[2px] border-b-transparent px-1 py-2 hover:border-b-el-w-100"
+        >
+          <a href="#projects">
+            <img src="./assets/ui/folder.svg" alt="home" class="invert" />
+          </a>
+        </div>
+
+        <div
+          id="contactLeft"
+          style="cursor: url('./assets/ui/cursor/cursor-pointer.png'), pointer"
+          class="flex items-center justify-center border-b-[2px] border-b-transparent px-1 py-2 hover:border-b-el-w-100"
+        >
+          <a href="#contact">
+            <img src="./assets/ui/mail.svg" alt="home" class="invert" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- ================= NAVBAR LEFT END =============== -->
+
+    <section id="home" class="">
+      <div class="container px-[2%] max-md:px-[3%]">
+        <div class="flex h-screen items-center justify-center max-lg:flex-col-reverse max-lg:gap-y-4">
+          <div class="relative z-[20] w-2/3 flex-col items-center justify-center max-lg:flex max-lg:w-full">
+            <p class="mb-1 text-xl tracking-widest text-typo-500 max-lg:text-center max-lg:text-xl">Front-End Developer</p>
+            <h1 class="mb-2 text-7xl font-extrabold text-primary max-lg:text-center max-lg:text-5xl max-sm:text-4xl">Amir Hamzah</h1>
+            <p class="text-3xl font-semibold text-primary max-lg:text-center max-lg:text-xl">UI/UX Designer & Frontend Developer</p>
+            <p class="mt-4 max-w-[90%] text-base leading-relaxed text-typo-600 max-lg:text-center">
+              I am currently a student at the University of Indonesia majoring in Informatics Engineering. I am a UI/UX Designer and Frontend.
+            </p>
+
+            <div class="mt-6 flex items-center space-x-3">
+              <a
+                href="#about"
+                class="rounded-xl border border-primary bg-transparent px-6 py-2 text-sm text-primary shadow-md transition duration-300 ease-in-out hover:border-transparent hover:bg-primary hover:text-el-w-100"
+                >Contact Me</a
+              >
+              <a
+                href="#about"
+                class="rounded-xl border border-transparent bg-primary px-6 py-2 text-sm text-el-w-100 shadow-md transition duration-300 ease-in-out hover:border-primary hover:bg-transparent hover:text-primary"
+                >About Me</a
+              >
+            </div>
+          </div>
+
+          <div
+            id="heroImg"
+            class="max-lg:max-w-auto relative z-[10] mb-4 h-[300px] w-[250px] overflow-hidden rounded-[6.2rem] grayscale hover:grayscale-0 transition-all duration-500 ease-in-out max-lg:h-auto max-lg:w-[200px] max-lg:max-w-[35%] max-lg:rounded-full max-sm:min-w-[150px] lg:min-w-[120px]"
+          >
+            <img src="assets\img\Meee.JPG" alt="Me" class="h-full w-full bg-cover object-cover object-center"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="">
+      <div class="container px-[2%] max-md:px-[3%]">
+      </div>
+    </section>
+
+    <!-- ===== BOTTOM BAR START ============= -->
+    <div class="fixed bottom-6 right-5 z-[100] w-full max-md:bottom-5 max-md:right-3">
+      <div id="bottomBarContainer" class="chat absolute bottom-0 right-0 flex items-center justify-end space-x-2">
+        <div
+          id="notificationBox"
+          class="relative -bottom-32 z-[100] h-[70px] w-[250px] overflow-hidden rounded-lg bg-white shadow-md transition-all duration-[1050ms] ease-in-out max-md:h-[65px] max-md:w-[190px]"
+        >
+          <div class="flex h-full items-center justify-between">
+            <p class="p-3 text-sm text-gray-800 max-sm:text-xs">Hello, you have <span class="font-semibold">1 new message</span>.</p>
+            <div
+              id="closeNotificationBox"
+              style="cursor: url(./assets/ui/cursor/cursor-pointer.png), pointer"
+              class="flex h-full flex-shrink-0 items-center justify-center rounded-l-xl hover:bg-gray-100"
+            >
+              <img src="assets\ui\exit.svg" alt="exit" class="h-[10px] w-[32px] px-2" />
+            </div>
+          </div>
+        </div>
+
+        <!-- CHAT BUTTON -->
+        <div id="chatBtn" class="relative -bottom-32 z-[100] transition-all duration-[900ms] ease-in-out">
+          <img src="assets\ui\chat.svg" alt="chat" class="h-[62px] w-[62px] drop-shadow-md hover:brightness-[120%] max-md:h-[56px] max-md:w-[56px]" />
+          <div
+            id="notificationBullet"
+            class="pointer-events-none absolute -right-1 -top-1 flex h-[18px] w-[18px] items-center justify-center rounded-full border-[3px] border-secondary-bg bg-red-600 p-2 text-center text-xs font-semibold text-red-50 opacity-100 max-md:p-1 max-sm:border-[2px]"
+          >
+            1
+          </div>
+        </div>
+
+        <div
+          id="chatBox"
+          class="fixed -bottom-32 z-[90] h-[0px] w-[270px] origin-bottom overflow-hidden overflow-y-auto rounded-t-lg bg-[#fafafa] shadow-md transition-all duration-[700ms] ease-in-out max-md:w-[270px]"
+        >
+          <div class="sticky top-0 z-[20] border-b border-b-el-w-700 shadow-md">
+            <div id="headerChatBox" class="flex h-[40px] w-full items-center justify-between bg-primary">
+              <p class="p-3 text-sm text-white">Message</p>
+              <div
+                id="closeChatBoxTop"
+                style="cursor: url(./assets/ui/cursor/cursor-pointer.png), pointer"
+                class="flex h-full flex-shrink-0 items-center justify-center rounded-l-xl hover:bg-el-w-700"
+              >
+                <img src="assets\ui\exit.svg" alt="exit" class="h-[10px] w-[32px] px-1 invert" />
+              </div>
+            </div>
+          </div>
+
+
+          <!-- CHAT -->
+
+          <div class="relative z-[10] flex w-full flex-col content-center items-center justify-center gap-y-3 pt-4">
+            <!-- CHAT LEFT -->
+            <div class="flex w-full flex-col px-3">
+              <div class="flex w-full items-start justify-start gap-1">
+                <img src="./assets/img/Meee.JPG" alt="Me" class="h-[28px] w-[28px] rounded-full" />
+                <div class="flex w-fit max-w-[80%] flex-col gap-y-1">
+                  <div class="rounded-lg bg-el-w-300 p-2">
+                    <p class="text-[0.78rem] font-medium text-primary max-sm:text-[0.8rem]">Amir ( Chatbot )</p>
+
+                    <p class="text-[0.78rem] text-el-w-600 max-sm:text-[0.8rem]">
+                      Hello 👋, my name is Amir, you can call me Amir. If you have a questions, just ask it now, I will answer it for you.
+                    </p>
+                  </div>
+                  <p id="currentTime" class="relative bottom-0 right-0 w-full px-2 text-start text-[0.6rem] text-el-w-500"></p>
+
+                  <div class="rounded-lg bg-el-w-300 p-2">
+                    <p class="text-[0.78rem] text-el-w-600 max-sm:text-[0.8rem]">
+                      You can see my other works on my <a href="" class="text-blue-500 underline">Behance</a> and
+                      <a href="https://www.github.com/AmirHamzah133/" target="_blank" class="text-blue-500 underline">GitHub</a>. Hopefully you like
+                      this!
+                    </p>
+                  </div>
+                  <p id="currentTime" class="relative bottom-0 right-0 w-full px-2 text-start text-[0.6rem] text-el-w-500"></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CHAT RIGHT -->
+            <div class="flex w-full flex-row-reverse items-start justify-start gap-1 px-3">
+              <div class="flex w-fit max-w-[80%] flex-col gap-y-1">
+                <div class="rounded-lg bg-primary p-2">
+                  <p class="text-[0.78rem] text-el-w-100 max-sm:text-[0.8rem]">Halo Amir :D, saya juga Amir :v</p>
+                </div>
+                <p id="currentTime" class="relative bottom-0 right-0 w-full px-2 text-end text-[0.6rem] text-el-w-500"></p>
+              </div>
+            </div>
+
+            <!-- CHAT LEFT -->
+            <div class="flex w-full flex-col px-3">
+              <div class="flex w-full items-start justify-start gap-1">
+                <img src="./assets/img/Meee.JPG" alt="Me" class="h-[28px] w-[28px] rounded-full" />
+                <div class="flex w-fit max-w-[80%] flex-col gap-y-1">
+                  <div class="rounded-lg bg-el-w-300 p-2">
+                    <p class="text-[0.78rem] font-medium text-primary max-sm:text-[0.8rem]">Amir ( Chatbot )</p>
+
+                    <p class="text-[0.78rem] text-el-w-600 max-sm:text-[0.8rem]">Still ok. How about you?</p>
+                  </div>
+                  <p id="currentTime" class="relative bottom-0 right-0 w-full px-2 text-start text-[0.6rem] text-el-w-500"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ===== BOTTOM BAR END ============= -->
+    <script src="./JS/script.js"></script>
+  </body>
+</html>
