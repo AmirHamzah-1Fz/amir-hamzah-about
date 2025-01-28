@@ -32,8 +32,6 @@ function showMenuItems() {
   menuItemsOverlay.classList.add('h-[100vh]');
   menuItemsOverlayTwo.classList.remove('h-[0vh]');
   menuItemsOverlayTwo.classList.add('h-[100vh]');
-  const bloob = new Audio('../assets/audio/sfx/bloob.mp3');
-  bloob.play();
   closeChatBox();
 
   if (menuItemsOverlay.classList.value.includes('h-[100vh]')) {
@@ -53,8 +51,6 @@ function closeMenuItems() {
   menuItemsOverlay.classList.add('h-[0vh]');
   menuItemsOverlayTwo.classList.remove('h-[100vh]');
   menuItemsOverlayTwo.classList.add('h-[0vh]');
-  const bloobTwo = new Audio('../assets/audio/sfx/bloob 2.mp3');
-  bloobTwo.play();
 
   setTimeout(() => {
     menuItemsOverlay.classList.remove('duration-[950ms]');
